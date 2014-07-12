@@ -1,8 +1,8 @@
 #
 # Command specific completions for the node command.
-# These completions where generated from the commands
-# man page by the make_completions.py script, but may
-# have been hand edited since.
+# These completions were generated from the commands
+# man page by the make_completions.py script, but has
+# been hand edited since.
 #
 
 complete -c node -s v -l version --description "Print node's version"
