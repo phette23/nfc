@@ -26,6 +26,18 @@ function __fish_npm_using_command
   return 1
 end
 
+function __fish_npm_config_using_command
+  set cmd (commandline -opc)
+
+  if [ (count $cmd) -gt 2 ]
+    if [ $cmd[2] = 'config' -a $argv[1] = $cmd[3] ]
+      return 0
+    end
+  end
+
+  return 1
+end
+
 # return everything that can be used with the npm config get/set commands
 function __fish_npm_settings
   command npm config ls -l | command grep -o '.* =' | command tr -d '; ' | command tr -d ' ='
@@ -46,6 +58,11 @@ for c in 'c' 'config'
   complete -x -c npm -n "__fish_npm_using_command $c" -a 'list' -d 'Show all the config settings'
   complete -x -c npm -n "__fish_npm_using_command $c" -a 'ls' -d 'Show all the config settings'
   complete -x -c npm -n "__fish_npm_using_command $c" -a 'edit' -d 'Opens the config file in an editor'
+  # 2nd layer deep for these cmds
+  # unfortunately all 6 above are still active…can I undo them somehow?
+  complete -f -c npm -n "__fish_npm_config_using_command set" -a '(__fish_npm_settings)'
+  complete -f -c npm -n "__fish_npm_config_using_command get" -a '(__fish_npm_settings)'
+  complete -f -c npm -n "__fish_npm_config_using_command delete" -a '(__fish_npm_settings)'
 end
 # get, set also exist as shorthands
 complete -f -c npm -n "__fish_npm_needs_command" -a 'get' -d 'Echo the config value to stdout'
