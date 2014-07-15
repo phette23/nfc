@@ -26,6 +26,11 @@ function __fish_npm_using_command
   return 1
 end
 
+# return everything that can be used with the npm config get/set commands
+function __fish_npm_settings
+  command npm config ls -l | command grep -o '.* =' | command tr -d '; ' | command tr -d ' ='
+end
+
 # cache
 complete -f -c npm -n '__fish_npm_needs_command' -a 'cache' -d "Manipulates package's cache"
 complete -f -c npm -n '__fish_npm_using_command cache' -a 'add' -d 'Add the specified package to the local cache'
@@ -33,7 +38,20 @@ complete -f -c npm -n '__fish_npm_using_command cache' -a 'clean' -d 'Delete  da
 complete -f -c npm -n '__fish_npm_using_command cache' -a 'ls' -d 'Show the data in the cache'
 
 # config
-# @TODO lot to work on here
+for c in 'c' 'config'
+  complete -f -c npm -n "__fish_npm_needs_command" -a "$c" -d 'Manage the npm configuration files'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'set' -d 'Sets the config key to the value'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'get' -d 'Echo the config value to stdout'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'delete' -d 'Deletes the key from all configuration files'
+  complete -x -c npm -n "__fish_npm_using_command $c" -a 'list' -d 'Show all the config settings'
+  complete -x -c npm -n "__fish_npm_using_command $c" -a 'ls' -d 'Show all the config settings'
+  complete -x -c npm -n "__fish_npm_using_command $c" -a 'edit' -d 'Opens the config file in an editor'
+end
+# get, set also exist as shorthands
+complete -f -c npm -n "__fish_npm_needs_command" -a 'get' -d 'Echo the config value to stdout'
+complete -f -c npm -n "__fish_npm_needs_command" -a 'set' -d 'Sets the config key to the value'
+complete -f -c npm -n "__fish_npm_using_command set" -a '(__fish_npm_settings)'
+complete -f -c npm -n "__fish_npm_using_command get" -a '(__fish_npm_settings)'
 
 # List of NPM commands
 # one quick-&-dirty way to get them: npm | grep ',' | tr ',' '\n'
