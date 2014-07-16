@@ -69,6 +69,15 @@ for c in 'install' 'isntall' 'i'
     complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'Install package globally'
 end
 
+for c in 'la' 'list' 'll' 'ls'
+  complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'List installed packages'
+  complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'List packages in the global install prefix instead of in the current project'
+  complete -f -c npm -n "__fish_npm_using_command $c" -l json -d 'Show information in JSON format'
+  complete -f -c npm -n "__fish_npm_using_command $c" -l long -d 'Show extended information'
+  complete -f -c npm -n "__fish_npm_using_command $c" -l parseable -d 'Show parseable output instead of tree view'
+  complete -x -c npm -n "__fish_npm_using_command $c" -l depth -d 'Max display depth of the dependency tree'
+end
+
 # update
 for c in 'up' 'update'
     complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'Update package(s)'
@@ -109,7 +118,6 @@ complete -f -c npm -n '__fish_npm_needs_command' -a 'faq' -d 'Frequently Asked Q
 complete -f -c npm -n '__fish_npm_needs_command' -a 'help-search' -d 'Search npm help documentation'
 complete -f -c npm -n '__fish_npm_using_command help-search' -l long -d 'Display full package descriptions and other long text across multiple lines'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'info v view' -d 'View registry info'
-complete -f -c npm -n '__fish_npm_needs_command' -a 'la list ll ls' -d 'List installed packages'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'link ln' -d 'Symlink a package folder'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'outdated' -d 'Check for outdated packages'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'pack' -d 'Create a tarball from a package'
