@@ -69,6 +69,7 @@ for c in 'install' 'isntall' 'i'
     complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'Install package globally'
 end
 
+# list
 for c in 'la' 'list' 'll' 'ls'
   complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'List installed packages'
   complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'List packages in the global install prefix instead of in the current project'
@@ -78,17 +79,11 @@ for c in 'la' 'list' 'll' 'ls'
   complete -x -c npm -n "__fish_npm_using_command $c" -l depth -d 'Max display depth of the dependency tree'
 end
 
-# update
-for c in 'up' 'update'
-    complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'Update package(s)'
-    complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'Update global package(s)'
-end
-
-# search
-for c in 'find' 's' 'se' 'search'
-    complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'Search for packages'
-    complete -x -c npm -n "__fish_npm_using_command $c" -l long -d 'Display full package descriptions and other long text across multiple lines'
-end
+# owner
+complete -f -c npm -n '__fish_npm_needs_command' -a 'owner' -d 'Manage package owners'
+complete -f -c npm -n '__fish_npm_using_command owner' -a 'ls' -d 'List package owners'
+complete -f -c npm -n '__fish_npm_using_command owner' -a 'add' -d 'Add a new owner to package'
+complete -f -c npm -n '__fish_npm_using_command owner' -a 'rm' -d 'Remove an owner from package'
 
 # remove
 for c in 'r' 'remove' 'rm' 'un' 'uninstall' 'unlink'
@@ -99,11 +94,17 @@ for c in 'r' 'remove' 'rm' 'un' 'uninstall' 'unlink'
     complete -x -c npm -n "__fish_npm_using_command $c" -l save-optional -d 'Package will be removed from your optionalDependencies'
 end
 
-# owner
-complete -f -c npm -n '__fish_npm_needs_command' -a 'owner' -d 'Manage package owners'
-complete -f -c npm -n '__fish_npm_using_command owner' -a 'ls' -d 'List package owners'
-complete -f -c npm -n '__fish_npm_using_command owner' -a 'add' -d 'Add a new owner to package'
-complete -f -c npm -n '__fish_npm_using_command owner' -a 'rm' -d 'Remove an owner from package'
+# search
+for c in 'find' 's' 'se' 'search'
+    complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'Search for packages'
+    complete -x -c npm -n "__fish_npm_using_command $c" -l long -d 'Display full package descriptions and other long text across multiple lines'
+end
+
+# update
+for c in 'up' 'update'
+    complete -f -c npm -n '__fish_npm_needs_command' -a "$c" -d 'Update package(s)'
+    complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'Update global package(s)'
+end
 
 # misc shorter explanations
 complete -f -c npm -n '__fish_npm_needs_command' -a 'adduser add-user login' -d 'Add a registry user account'
