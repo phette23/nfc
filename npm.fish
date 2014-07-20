@@ -106,6 +106,14 @@ for c in 'up' 'update'
     complete -f -c npm -n "__fish_npm_using_command $c" -s g -l global -d 'Update global package(s)'
 end
 
+# version
+for c in 'ver' 'version'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'major' -d 'Bump package major version number'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'minor' -d 'Bump package minor version number'
+  complete -f -c npm -n "__fish_npm_using_command $c" -a 'patch' -d 'Bump package patch version number'
+  complete -f -c npm -n "__fish_npm_using_command $c" -s m -l message -d 'Supply a commit message for the version commit'
+end
+
 # misc shorter explanations
 complete -f -c npm -n '__fish_npm_needs_command' -a 'adduser add-user login' -d 'Add a registry user account'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'bin' -d 'Display npm bin folder'
@@ -137,5 +145,4 @@ complete -f -c npm -n '__fish_npm_needs_command' -a 'submodule' -d 'Add a packag
 complete -f -c npm -n '__fish_npm_needs_command' -a 't tst test' -d 'Test a package'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unpublish' -d 'Remove a package from the registry'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unstar' -d 'Remove star from a package'
-complete -f -c npm -n '__fish_npm_needs_command' -a 'version' -d 'Bump a package version'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'whoami' -d 'Display npm username'
