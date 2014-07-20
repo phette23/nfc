@@ -1,6 +1,6 @@
 # Completions for Node & NPM in the Fish Shell
 
-To set up, move these to your user's completion folder, which is typically ~/.config/fish/completions. The included `copy.fish` script will do this for you.
+To set up, move these to your user's completion folder, which is typically `~/.config/fish/completions`. The included `copy.fish` script will do this for you.
 
 In action:
 
@@ -8,4 +8,6 @@ In action:
 
 ## Misc Notes
 
-The 'Make completions' script from https://github.com/benhoskings/fish/blob/master/scripts/make_completions.py helped scaffold the Node completions, though its parser choked somewhere and I had to do a lot of manual editing.
+The 'Make completions' script from https://github.com/benhoskings/fish/blob/master/scripts/make_completions.py helped scaffold the Node completions, though its parser choked somewhere & I had to do a lot of manual editing.
+
+There are Grunt tasks available for development if you're into that short of thing. Running `grunt copy` will copy the two completion scripts into place; `grunt watch` will watch the two for changes & then run copy.
