@@ -142,6 +142,7 @@ complete -f -c npm -n '__fish_npm_needs_command' -a 'stars' -d 'View packages ma
 complete -f -c npm -n '__fish_npm_needs_command' -a 'start' -d 'Start a package'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'stop' -d 'Stop a package'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'submodule' -d 'Add a package as a git submodule'
+complete -f -c npm -n '__fish_npm_needs_command' -a 'substack' -d 'Print a random @substack-ism'
 complete -f -c npm -n '__fish_npm_needs_command' -a 't tst test' -d 'Test a package'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unpublish' -d 'Remove a package from the registry'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unstar' -d 'Remove star from a package'
