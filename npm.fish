@@ -146,4 +146,6 @@ complete -f -c npm -n '__fish_npm_needs_command' -a 'substack' -d 'Print a rando
 complete -f -c npm -n '__fish_npm_needs_command' -a 't tst test' -d 'Test a package'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unpublish' -d 'Remove a package from the registry'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'unstar' -d 'Remove star from a package'
+complete -f -c npm -n '__fish_npm_needs_command' -a 'visnup' -d 'Print a handsome face'
 complete -f -c npm -n '__fish_npm_needs_command' -a 'whoami' -d 'Display npm username'
+complete -f -c npm -n '__fish_npm_needs_command' -a 'xmas' -d 'Print a holiday shrubbery'
